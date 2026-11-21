@@ -21,6 +21,7 @@ presentation layer, and an automated test suite.
 
 - Python 3.9 or newer
 - Pygame 2.1 or newer
+- Runs on Windows
 
 ## Installation
 
