@@ -1,0 +1,2 @@
+# Runtime dependency.
+pygame>=2.1,<3
