@@ -4,3 +4,7 @@ __pycache__/
 .venv/
 venv/
 *.egg-info/
+
+# PyInstaller build output (produced by scripts/build_exe.py).
+build/
+dist/

@@ -52,6 +52,23 @@ python main.py
 
 The window opens at 680 × 740. Close it or press `Esc` to quit.
 
+## Building a standalone Windows executable
+
+On Windows, build `tetris.exe` so the game can be started without a Python
+installation:
+
+```bash
+python -m pip install -r requirements-build.txt
+python scripts/build_exe.py
+```
+
+The build uses PyInstaller with `tetris.spec` and writes the single-file
+executable `dist\tetris.exe`. Double-click it (or run `dist\tetris.exe`) to
+play. PyInstaller does not cross-compile, so build the Windows executable on
+Windows. Windows may warn that the unsigned executable is from an unknown
+publisher; choose **More info → Run anyway**. The `build/` and `dist/`
+directories are generated and are not committed.
+
 ## Controls
 
 | Key | Action |
@@ -110,10 +127,13 @@ and combo bonuses are outside this version's scope.
 │   └── __init__.py
 ├── tests/                      # Headless pytest suite
 ├── scripts/
+│   ├── build_exe.py            # Builds dist/tetris.exe with PyInstaller
 │   └── capture_screenshots.py  # Renders documentation images headlessly
 ├── docs/screenshots/
 ├── requirements.txt
 ├── requirements-dev.txt
+├── requirements-build.txt
+├── tetris.spec                 # PyInstaller build definition
 ├── pytest.ini
 └── README.md
 ```
