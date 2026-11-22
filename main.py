@@ -12,7 +12,8 @@ def main() -> int:
     except ImportError:
         print(
             "Pygame is required to run Tetris.\n"
-            "Install it with: pip install pygame",
+            "Install it with: pip install pygame (or pip install pygame-ce "
+            "on Python 3.14+)",
             file=sys.stderr,
         )
         return 1
