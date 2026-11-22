@@ -20,7 +20,8 @@ presentation layer, and an automated test suite.
 ## Requirements
 
 - Python 3.9 or newer
-- Pygame 2.1 or newer
+- Pygame 2.1 or newer (on Python 3.14+, `pygame-ce`, which provides the same
+  `pygame` module)
 
 ## Installation
 
@@ -35,6 +36,10 @@ or install the pinned requirements file:
 ```bash
 python -m pip install -r requirements.txt
 ```
+
+On Python 3.14 or newer, upstream pygame has no wheels and the source build fails.
+`requirements.txt` installs `pygame-ce` for those versions instead: a drop-in
+replacement that provides the same `pygame` module.
 
 If Pygame is missing, `python main.py` exits with a clear message instead of a
 traceback.
@@ -172,6 +177,10 @@ The script uses SDL's dummy video driver and the same renderer as the game.
 
 - **`Pygame is not installed`** — run `pip install pygame` (or
   `python -m pip install -r requirements.txt`).
+- **`Failed to build 'pygame'` on Python 3.14+** — upstream pygame ships no wheels
+  for those versions, so pip tries a source build that fails. Install the drop-in
+  fork with `pip install pygame-ce`, or use `python -m pip install -r
+  requirements.txt`, which picks it automatically.
 - **`Could not open a game window`** — the game needs a graphical display.
   Run it from a desktop session; a headless server does not provide one.
 - **Window opens but controls do not work** — click the window to focus it, then

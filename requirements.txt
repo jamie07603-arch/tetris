@@ -1,2 +1,5 @@
 # Runtime dependency.
-pygame>=2.1,<3
+# Upstream pygame has no wheels for Python 3.14+, so newer interpreters get
+# pygame-ce, a drop-in fork that still provides the pygame module.
+pygame>=2.1,<3; python_version < "3.14"
+pygame-ce>=2.5.8,<3; python_version >= "3.14"
